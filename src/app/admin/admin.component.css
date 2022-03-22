@@ -1,0 +1,11 @@
+span{
+    border-style: groove;
+    border-color: rgb(227, 216, 238);
+    border-radius: 5px;
+    border-width: 5px;
+    padding: 10px;
+    text-align: center;
+    color:rgb(98, 70, 161);
+    font-size: 15px;
+    font-weight: bold;
+}

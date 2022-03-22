@@ -1,0 +1,29 @@
+
+.Formdiv{
+    margin-top: 15%;
+}
+form{
+    border-style: groove;
+    border-color: white;
+    border-width: 5px;
+    border-radius: 12px;
+    background-color: white;
+    padding: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+    text-align: center;
+}
+h1{
+    color:rgb(84, 35, 163);
+}
+label{
+    color: darkblue;
+}
+input{
+    border-radius: 8px;
+    width:75%;
+    border-color: rgb(66, 66, 161);
+}
+.btn{
+    background-color: rgb(66, 66, 161);
+}

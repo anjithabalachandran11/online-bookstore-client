@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SiteFrameworkModule } from '../site-framework/site-framework.module';
+
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -15,8 +15,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,
-    SiteFrameworkModule
+    AdminRoutingModule
   ]
 })
 export class AdminModule { }

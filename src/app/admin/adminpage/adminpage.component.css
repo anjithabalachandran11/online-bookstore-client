@@ -1,0 +1,93 @@
+.nav-link{
+    color: white!important;
+}
+nav{
+    background-color: rgb(89, 89, 202);
+    margin-top: 5px;
+}
+.navbar-brand{
+    color: white!important;
+    font-style:italic;
+    font-size: 25px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+.nav-item{
+    font-size: 18px;
+}
+h4{
+    padding-top: 6px;
+}
+.side-bar{
+    width: 25%;
+    margin-left: 10px;
+    
+}
+.col-lg-3{
+    border-style:ridge;
+    border-color: rgb(204, 204, 226);
+    width: 15%;
+    position:absolute;
+    height: 100%;
+    top: 75px;
+    left:8px;
+    /* z-index: 1; */
+    /* overflow-x: hidden; */
+    /* padding: 8px,8px; */ 
+}
+.sidebar-item{
+    border-style: ridge;
+    border-color: rgb(240, 237, 243);
+    font-size: medium;
+    color: rgb(88, 10, 231);
+    display: block;
+    text-align: left;
+    padding: 8px;
+    margin-top: 15px;
+    width: 100%;
+}
+form{
+    border-style: groove;
+    border-color: white;
+    border-width: 5px;
+    border-radius: 12px;
+    background-color: white;
+    padding: 10px;
+    margin-left: 34%;
+    margin-right: 0%;
+    text-align: center;
+}
+h1{
+    color:rgb(84, 35, 163);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+label{
+    color: darkblue;
+    font-size: medium;
+}
+input{
+    border-radius: 8px;
+    width:75%;
+    border-color: rgb(66, 66, 161);
+    font-size: medium;
+}
+.btn{
+    background-color: rgb(66, 66, 161);
+}
+textarea,select{
+    border-radius: 8px;
+    border-width: 2px;
+    width:75%;
+    border-color: rgb(66, 66, 161);
+    font-size: medium;
+}
+option{
+    width:75%;
+    font-size: medium;
+}
+.err{
+    color: red;
+    font-size: small;
+    font-style: italic;
+    font-size: small;
+}

@@ -1,4 +1,4 @@
-.nav-link{
+nav-link{
     color: white!important;
 }
 nav{
@@ -14,52 +14,23 @@ nav{
 }
 .nav-item{
     font-size: 18px;
+    padding-top: 5px;
+    padding-right: 15px;
 }
 h4{
     padding-top: 6px;
 }
-.side-bar{
-    width: 25%;
-    margin-left: 10px;
-    
-}
-.col-lg-3{
-    border-style:ridge;
-    border-color: rgb(204, 204, 226);
-    border-radius: 5px;
-    width: 15%;
-    position:absolute;
-    height: 100%;
-    top: 75px;
-    left:8px;
-    /* z-index: 1; */
-    /* overflow-x: hidden; */
-    /* padding: 8px,8px; */ 
-}
-.sidebar-item{
-    border-style: ridge;
-    border-color: rgb(216, 207, 224); 
-    background-color: rgb(227, 227, 240);
-    font-size: medium;
-    color: rgb(83, 2, 235);
-    display: block;
-    text-align: left;
-    padding: 8px;
-    margin-top: 15px;
-    width: 100%;
-}
-/* form{
+form{
     border-style: groove;
     border-color: white;
     border-width: 5px;
     border-radius: 12px;
     background-color: white;
     padding: 10px;
-    margin-left: 34%;
-    margin-right: 0%;
     text-align: center;
+    margin-top: 10%;
 }
-h1{
+h2{
     color:rgb(84, 35, 163);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -76,20 +47,9 @@ input{
 .btn{
     background-color: rgb(66, 66, 161);
 }
-textarea,select{
-    border-radius: 8px;
-    border-width: 2px;
-    width:75%;
-    border-color: rgb(66, 66, 161);
-    font-size: medium;
-}
-option{
-    width:75%;
-    font-size: medium;
-}
 .err{
     color: red;
     font-size: small;
     font-style: italic;
     font-size: small;
-} */
+}

@@ -1,0 +1,45 @@
+form{
+    border-style: groove;
+    border-color: white;
+    border-width: 5px;
+    border-radius: 12px;
+    background-color: white;
+    padding: 10px;
+    margin-left: 34%;
+    margin-right: 0%;
+    text-align: center;
+}
+h1{
+    color:rgb(84, 35, 163);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+label{
+    color: darkblue;
+    font-size: medium;
+}
+input{
+    border-radius: 8px;
+    width:72%;
+    border-color: rgb(66, 66, 161);
+    font-size: medium;
+}
+.btn{
+    background-color: rgb(66, 66, 161);
+}
+textarea,select{
+    border-radius: 8px;
+    border-width: 2px;
+    width:75%;
+    border-color: rgb(66, 66, 161);
+    font-size: medium;
+}
+option{
+    width:75%;
+    font-size: medium;
+}
+.err{
+    color: red;
+    font-size: small;
+    font-style: italic;
+    font-size: small;
+}

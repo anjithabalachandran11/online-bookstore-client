@@ -1,8 +1,10 @@
 .nav-link{
     color: white!important;
+    font-size: larger;
 }
 nav{
     background-color: rgb(89, 89, 202);
+    margin-top: 5px;
 }
 .navbar-brand{
     color: white!important;
@@ -13,15 +15,14 @@ nav{
 }
 .nav-item{
     font-size: 18px;
+    padding-top: 5px;
+    padding-right: 15px;
 }
-span{
-    border-style: groove;
-    border-color: rgb(227, 216, 238);
-    border-radius: 5px;
-    border-width: 5px;
-    padding: 10px;
-    text-align: center;
-    color:rgb(98, 70, 161);
-    font-size: 15px;
-    font-weight: bold;
+h4{
+    padding-top: 6px;
+}
+.col-lg-4{
+    border-style: solid;
+    border-color:rgb(89, 89, 202);
+    background-color: white;
 }

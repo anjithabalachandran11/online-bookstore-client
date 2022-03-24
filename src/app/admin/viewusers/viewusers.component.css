@@ -1,0 +1,21 @@
+.div1{
+    padding: 10px;
+    margin-left: 34%;
+    margin-right: 0%;
+    text-align: center;
+}
+h1{
+    color:rgb(84, 35, 163);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+table{
+    padding: 10px;
+    width:100%;
+    border-color: rgb(166, 128, 209);
+}
+th{
+    color:rgb(84, 35, 163);
+}
+.btn{
+    background-color: rgb(66, 66, 161);
+}

@@ -1,0 +1,38 @@
+.nav-link{
+    color: white!important;
+}
+nav{
+    background-color: rgb(89, 89, 202);
+    margin-top: 5px;
+}
+.navbar-brand{
+    color: white!important;
+    font-style:italic;
+    font-size: 25px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+.nav-item{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-right: 15px;
+}
+h4{
+    padding-top: 6px;
+}
+.side-bar{
+    width: 25%;
+    margin-left: 10px;
+    
+}
+p{
+    border-style: groove;
+    border-color: rgb(227, 216, 238);
+    border-radius: 5px;
+    border-width: 5px;
+    padding: 10px;
+    text-align: center;
+    color:rgb(98, 70, 161);
+    font-size: 15px;
+    font-weight: bold;
+}

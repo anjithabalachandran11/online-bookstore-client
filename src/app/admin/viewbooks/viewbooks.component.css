@@ -22,3 +22,6 @@ th{
 .btn{
     background-color: rgb(66, 66, 161);
 }
+th.td{
+    width: fit-content;
+}

@@ -1,6 +1,6 @@
 
 .Formdiv{
-    margin-top: 15%;
+    margin-top: 10%;
 }
 form{
     border-style: groove;
@@ -26,4 +26,8 @@ input{
 }
 .btn{
     background-color: rgb(66, 66, 161);
+}
+.err{
+    color: red;
+    font-style: italic;
 }

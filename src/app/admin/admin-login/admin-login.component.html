@@ -3,13 +3,21 @@
     <div class="row">
       <div class="col-lg">
           <div class="Formdiv">
-              <form>
+              <form [formGroup]="adminlogindata" (ngSubmit)="login()">
                   <h1>ADMIN LOGIN</h1>
                   <label>Username </label><br>
-                  <input type="text"><br><br>
+                  <input type="text" name="adminusername" formControlName="adminusername"><br>
+                  <div *ngIf="adminlogindata.controls['adminusername'].errors&&adminlogindata.controls['adminusername'].touched">
+                      <div *ngIf="adminlogindata.controls['adminusername'].errors['required']" class="err">please enter user name</div>
+                  </div>
+                  <br>
                   <label>Password </label><br>
-                  <input type="password"><br><br>
-                  <button type="submit" class="btn text-light" (click)="login()">Login</button>
+                  <input type="password" name="adminpassword" formControlName="adminpassword"><br>
+                  <div *ngIf="adminlogindata.controls['adminpassword'].errors&&adminlogindata.controls['adminpassword'].touched">
+                    <div *ngIf="adminlogindata.controls['adminpassword'].errors['required']" class="err">please enter password</div>
+                </div>
+                  <br>
+                  <button type="submit" class="btn text-light" [disabled]="!adminlogindata.valid">Login</button>
               </form>
           </div>
       </div>

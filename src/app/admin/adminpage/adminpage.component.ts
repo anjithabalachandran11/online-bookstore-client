@@ -15,6 +15,7 @@ export class AdminpageComponent implements OnInit {
     console.log(val,this.btnvalue)
   }
   logout(){
+    localStorage.clear()
     this.router.navigateByUrl('/admin')
   }
   ngOnInit(): void {

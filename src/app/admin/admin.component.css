@@ -14,7 +14,7 @@ nav{
 .nav-item{
     font-size: 18px;
 }
-span{
+p{
     border-style: groove;
     border-color: rgb(227, 216, 238);
     border-radius: 5px;

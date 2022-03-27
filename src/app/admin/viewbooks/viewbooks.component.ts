@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewbooksComponent implements OnInit {
 
+  data=false
   constructor() { }
 
   ngOnInit(): void {

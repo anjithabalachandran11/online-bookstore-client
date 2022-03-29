@@ -16,13 +16,21 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-                <form>
+                <form [formGroup]="logindata" (ngSubmit)="login()">
                     <h2>CUSTOMER LOGIN</h2><br>
                     <label>User Name</label><br>
-                    <input type="text"><br><br>
+                    <input type="text" name="username" formControlName="username" placeholder="Enter username"><br>
+                    <div *ngIf="logindata.controls['username'].errors&&logindata.controls['username'].touched">
+                        <div class="err" *ngIf="logindata.controls['username'].errors['required']">Enter username</div>
+                    </div>
+                    <br>
                     <label>Password</label><br>
-                    <input type="password"><br><br>
-                    <button type="submit" class="btn text-light" (click)="login()">Login</button>&nbsp;&nbsp;
+                    <input type="password" name="password" formControlName="password" placeholder="Password"><br>
+                    <div *ngIf="logindata.controls['password'].errors&&logindata.controls['password'].touched">
+                        <div class="err" *ngIf="logindata.controls['password'].errors['required']">Enter password</div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn text-light" [disabled]="!logindata.valid">Login</button>&nbsp;&nbsp;
                     <button type="submit" class="btn text-light" (click)="back()">Cancel</button>&nbsp;&nbsp;
                     <a routerLink="/customer/register">register</a>
                 </form>

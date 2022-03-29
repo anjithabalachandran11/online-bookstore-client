@@ -2,7 +2,7 @@
     <form [formGroup]="editdata" (ngSubmit)="editbook()">
         <h1>EDIT BOOK DETAILS</h1>
         <label>Book Id</label><br>
-        <input type="text" name="bookid" formControlName="bookid" placeholder="enter book id"><br>
+        <input type="text" name="bookid" formControlName="bookid" placeholder="enter book id" value={{editdata.value.book_id}}><br>
         <div *ngIf="editdata.controls['bookid'].errors&&editdata.controls['bookid'].touched">
           <div *ngIf="editdata.controls['bookid'].errors['required']" class="err">Enter Book Id</div>
           <div *ngIf="editdata.controls['bookid'].errors['pattern']" class="err">Book id should be a number</div>

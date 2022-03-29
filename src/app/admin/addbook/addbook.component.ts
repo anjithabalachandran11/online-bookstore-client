@@ -18,12 +18,10 @@ export class AddbookComponent implements OnInit {
     language:new FormControl('',Validators.compose([Validators.required])),
     publisher:new FormControl('',Validators.compose([Validators.required])),
     price:new FormControl('',Validators.compose([Validators.required, Validators.pattern('[0-9]*')])),
-  })
-  adminlogindata=new FormGroup({
-    adminusername:new FormControl('',Validators.compose([Validators.required])),
-    adminpassword:new FormControl('',Validators.compose([Validators.required]))
-  })
-  url='http://localhost:3000'
+  });
+
+  url='http://localhost:3000';
+
   constructor(private router:Router, private http:HttpClient) { }
 
   addbook(){
@@ -48,6 +46,7 @@ export class AddbookComponent implements OnInit {
     })
     window.location.reload()
   }
+  
   back(){
     window.location.reload()
   }

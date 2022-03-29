@@ -23,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
   constructor(private router:Router, private http:HttpClient) {  }
 
   login(){
-    let username = this.adminlogindata.value.adminusername
+    let username = (this.adminlogindata.value.adminusername).toUpperCase()
     let password = this.adminlogindata.value.adminpassword
     const data = {
       username,

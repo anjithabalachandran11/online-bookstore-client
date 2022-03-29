@@ -21,8 +21,17 @@ nav{
 h4{
     padding-top: 6px;
 }
-.col-lg-6{
+/* .col-lg-6{
     border-style: solid;
     border-color:rgb(89, 89, 202);
     background-color: white;
+} */
+.card{
+    margin : 5% 30%;
+}
+.btn{
+    background-color: rgb(66, 66, 161);
+}
+.card-body{
+    padding: 5%;
 }

@@ -2,17 +2,17 @@
     <h1>BOOKS DETAILS</h1>
     <form>
       <label style="color: rgb(60, 25, 143);">Sort by: </label>&nbsp;
-      <select size="1">
+      <select size="1" name="sortoption" [(ngModel)]="sortoption">
         <option valur="book_id">Book Id</option>
         <option value="book_name">Book Name</option>
         <option value="author">Author's Name</option>
         <option value="price">Price</option>
-        <option value="price">Language</option>
+        <option value="language">Language</option>
         <option value="publication">Publication</option>
         <option value="book_status">Status</option>
       </select>&nbsp;
-      <button type="button" class="btn text-light">Sort</button>&nbsp;
-      <button type="submit" class="btn text-light">Back</button>&nbsp;
+      <button type="button" class="btn text-light" (click)="viewdata(sortoption)">Sort</button>&nbsp;
+      <button type="button" class="btn text-light" (click)="back()">Back</button>&nbsp;
       </form><br>
     <table class="table table-bordered table-hover table-striped" *ngIf="data==true">
         <thead>
@@ -24,29 +24,27 @@
           <th scope="col">Price</th>
           <th scope="col">Language</th>
           <th scope="col">Status</th>
-          <th scope="col">Descri-ption</th>
-          <th scope="col">View</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Add</th>
           <th scope="col">Delete</th>
-          
+          <th scope="col">View</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td  scope="col"></td>
-          <td scope="col"><button type="button" class="btn text-light">View</button></td>
-          <td scope="col"><button type="button" class="btn text-light">Edit</button></td>
-          <td scope="col"><button type="button" class="btn text-light">Delete</button></td>
+        <tr *ngFor="let i of bookdata.result">
+          <td  scope="col" value="">{{i.book_id}}</td>
+          <td  scope="col" value="" >{{i.book_name}}</td>
+          <td  scope="col" value="" >{{i.author}}</td>
+          <td  scope="col" value="" >{{i.publication}}</td>
+          <td  scope="col" value="" >{{i.price}}</td>
+          <td  scope="col" value="" >{{i.language}}</td>
+          <td  scope="col" value="" >{{i.book_status}}</td>
+          <td scope="col"><button type="button" class="btn text-light" (click)="addbook(i)">Add</button></td>
+          <td scope="col"><button type="button" class="btn text-light" (click)="deletebook(i)">Delete</button></td>
+          <td scope="col"><button type="button" class="btn text-light" (click)="viewselectedbook(i)">View</button></td>
         </tr>
         </tbody>
       </table>
       <button type="button" class="btn text-light" *ngIf="data==true">prev</button>&nbsp;&nbsp;
       <button type="button" class="btn text-light" *ngIf="data==true">next</button>
 </div>
+

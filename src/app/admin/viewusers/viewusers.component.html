@@ -1,6 +1,17 @@
 <div class="div1">
     <h1>USER DETAILS</h1>
-    <table class="table table-bordered table-hover table-striped">
+    <form>
+      <label style="color: rgb(60, 25, 143);">Sort by: </label>&nbsp;
+      <select size="1" name="sortoption" [(ngModel)]="sortoption">
+        <option valur="user_id">User Id</option>
+        <option value="username">User Name</option>
+        <option value="userstatus">User Status</option>
+        <option value="name">Name</option>
+      </select>&nbsp;
+      <button type="button" class="btn text-light" (click)="viewusers(sortoption)">Sort</button>&nbsp;
+      <button type="button" class="btn text-light" (click)="back()">Back</button>&nbsp;
+      </form><br>
+    <table class="table table-bordered table-hover table-striped" *ngIf="data==true">
         <thead>
         <tr>
           <th scope="col">User Id</th>
@@ -8,20 +19,21 @@
           <th scope="col">Name</th>
           <th scope="col">Category</th>
           <th scope="col">User Status</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="col"></td>
-          <td scope="col"></td>
-          <td scope="col"></td>
-          <td scope="col"></td>
-          <td scope="col"><button type="submit" class="btn text-dark bg-light" style="width: 100%;">Block</button></td>
+        <tr *ngFor="let user of users.result">
+          <td scope="col">{{user.user_id}}</td>
+          <td scope="col">{{user.username}}</td>
+          <td scope="col">{{user.name}}</td>
+          <td scope="col">{{user.category}}</td>
+          <td scope="col">{{user.userstatus}}</td>
+          <td scope="col"><button type="submit" class="btn text-light" style="width: 100%;" (click)="unblockuser(user)">Unblock</button></td>
+          <td scope="col"><button type="submit" class="btn text-light" style="width: 100%;" (click)="blockuser(user)">Block</button></td>
         </tr>
         </tbody>
       </table>
-      <form>
-      <button type="submit" class="btn text-light">Back</button> 
-      </form>
 </div>
 

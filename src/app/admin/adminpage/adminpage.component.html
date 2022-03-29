@@ -26,8 +26,8 @@
         <button class="sidebar-item" (click)="btnclick(1)">View Books</button><br>
         <button class="sidebar-item" (click)="btnclick(2)">Add Book</button><br>
         <button class="sidebar-item" (click)="btnclick(3)">Edit Book</button><br>
-        <button class="sidebar-item" (click)="btnclick(4)">Delete Book</button><br>
-        <button class="sidebar-item" (click)="btnclick(5)">View Users</button><br>
+        <!-- <button class="sidebar-item" (click)="btnclick(4)">Delete Book</button><br> -->
+        <button class="sidebar-item" (click)="btnclick(4)">View Users</button><br>
     </div>
     <!-- Side Bar col-1 -->
     <!-- Page Content col-2 -->
@@ -37,6 +37,7 @@
             <ng-container *ngSwitchCase="1">
                 <ng-container *ngTemplateOutlet="viewbook"></ng-container>
             </ng-container>
+            
             <ng-container *ngSwitchCase="2">
                 <ng-container *ngTemplateOutlet="addbook"></ng-container>
             </ng-container>
@@ -46,16 +47,12 @@
             </ng-container>
 
             <ng-container *ngSwitchCase="4">
-                <ng-container *ngTemplateOutlet="deletebook"></ng-container>
-            </ng-container>
-            <ng-container *ngSwitchCase="5">
                 <ng-container *ngTemplateOutlet="viewusers"></ng-container>
             </ng-container>
 
             <ng-template #viewbook><app-viewbooks></app-viewbooks></ng-template>
             <ng-template #addbook><app-addbook></app-addbook></ng-template>
             <ng-template #editbook><app-editbook></app-editbook></ng-template>
-            <ng-template #deletebook><app-deletebook></app-deletebook></ng-template>
             <ng-template #viewusers><app-viewusers></app-viewusers></ng-template>
             <ng-container *ngSwitchDefault></ng-container>
 

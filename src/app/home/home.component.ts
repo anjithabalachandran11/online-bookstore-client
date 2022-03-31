@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
     else if(val==2){
       this.router.navigateByUrl('/customer')
     }
-   }
+  }
+  
   ngOnInit(): void {
   }
 

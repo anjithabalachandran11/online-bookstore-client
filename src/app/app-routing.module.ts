@@ -12,4 +12,5 @@ const routes: Routes = [{ path: 'home', loadChildren: () => import('./home/home.
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

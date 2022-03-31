@@ -10,7 +10,9 @@ import { ServicesService } from 'src/app/service/services.service';
   templateUrl: './editbook.component.html',
   styleUrls: ['./editbook.component.css']
 })
+
 export class EditbookComponent implements OnInit {
+
   editdata=new FormGroup({
     bookid:new FormControl('',Validators.compose([Validators.required, Validators.pattern('[0-9]*'),Validators.minLength(4)])),
     bookname:new FormControl('',Validators.compose([Validators.required])),
@@ -51,16 +53,18 @@ export class EditbookComponent implements OnInit {
   cancel(){
     window.location.reload()
   }
-  setbook(){
-    this.editdata.value.bookid=this.sr.editbook.book_id
-    console.log(this.editdata.value.bookid)
-    let book_name=this.editdata.value.bookname
-    let author = this.editdata.value.author
-    let description = this.editdata.value.description
-    let language = this.editdata.value.language
-    let publisher = this.editdata.value.publisher
-    let price = this.editdata.value.price
-  }
+
+  // setbook(){
+  //   this.editdata.value.bookid=this.sr.editbook.book_id
+  //   console.log(this.editdata.value.bookid)
+  //   let book_name=this.editdata.value.bookname
+  //   let author = this.editdata.value.author
+  //   let description = this.editdata.value.description
+  //   let language = this.editdata.value.language
+  //   let publisher = this.editdata.value.publisher
+  //   let price = this.editdata.value.price
+  // }
+
   ngOnInit(): void {
   }
 

@@ -22,35 +22,39 @@ export class LoginComponent implements OnInit {
 
   constructor( private router:Router, private http:HttpClient, private sr:ServicesService) { }
 
-back(){
-  this.router.navigateByUrl('/customer')
-}
-login(){
-  console.log(this.logindata)
-  let username=this.logindata.value.username
-  let password=this.logindata.value.password
-  const data={
-    username,
-    password
+  back(){
+    this.router.navigateByUrl('/customer')
   }
-  this.http.post(this.url+'/login',data).subscribe((result)=>{
-    this.current_user=JSON.parse(JSON.stringify(result))
-    if(this.current_user.statuscode==200){
-      alert(this.current_user.message)
-      localStorage.setItem("username",this.current_user.user.username)
-      localStorage.setItem("userid",this.current_user.user.user_id)
-      this.router.navigateByUrl('/books')
+
+  login(){
+    //console.log(this.logindata)
+    let username=this.logindata.value.username
+    let password=this.logindata.value.password
+    const data={
+      username,
+      password
     }
-    else if(this.current_user.statuscode==201){
-      alert(this.current_user.message)
-      this.router.navigateByUrl('/login')
-    }
-    else{
-      alert(this.current_user.message)
-      this.router.navigateByUrl('/login')
-    }
-  })
-}
+    this.http.post(this.url+'/login',data).subscribe((result)=>{
+      this.current_user=JSON.parse(JSON.stringify(result))
+      if(this.current_user.statuscode==200){
+        alert(this.current_user.message)
+        localStorage.setItem("username",this.current_user.user.username)
+        localStorage.setItem("userid",this.current_user.user.user_id)
+        localStorage.setItem("name",this.current_user.user.name)
+        localStorage.setItem('u_id',this.current_user.user._id)
+        this.router.navigateByUrl('/books')
+      }
+      else if(this.current_user.statuscode==201){
+        alert(this.current_user.message)
+        this.router.navigateByUrl('/login')
+      }
+      else{
+        alert(this.current_user.message)
+        this.router.navigateByUrl('/login')
+      }
+    })
+  }
+
   ngOnInit(): void {
   }
 

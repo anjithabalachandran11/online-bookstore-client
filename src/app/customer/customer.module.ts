@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
@@ -22,7 +23,8 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     CommonModule,
     CustomerRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxStarRatingModule
   ]
 })
 export class CustomerModule { }

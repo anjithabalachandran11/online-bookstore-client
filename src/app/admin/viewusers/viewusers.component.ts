@@ -7,13 +7,17 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './viewusers.component.html',
   styleUrls: ['./viewusers.component.css']
 })
+
 export class ViewusersComponent implements OnInit {
+
   data=false
   users:any
   sortoption:any
   userdata:any
   url='http://localhost:3000'
+
   constructor(private router:Router, private http:HttpClient) {
+
     let option="user_id"
     const data={
       option,
@@ -26,8 +30,7 @@ export class ViewusersComponent implements OnInit {
       }
     })
 
-   }
-
+  }
 
   viewusers(option:any){
     const data={
@@ -78,6 +81,7 @@ export class ViewusersComponent implements OnInit {
   back(){
     window.location.reload()
   }
+  
   ngOnInit(): void {
   }
 

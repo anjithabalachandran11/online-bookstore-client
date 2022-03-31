@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicesService {
   editbook:any
   bookid:any
-  constructor(private router:Router, private http:HttpClient) { }
+
+  constructor(private router:Router) { }
 
   viewbook(id:any){
     this.bookid=id
@@ -18,5 +19,4 @@ export class ServicesService {
     this.bookid=id
   }
   
-
 }

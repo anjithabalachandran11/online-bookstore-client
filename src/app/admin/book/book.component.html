@@ -22,13 +22,14 @@
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body">
         <h2 class="card-title">{{book.data.book_name}}</h2>
-        <h3>Author: {{book.data.author}}</h3>
+        <h3>Author: {{book.data.author|titlecase}}</h3>
         <p class="card-text">{{book.data.description}}</p>
-        <h5>LANGUAGE: {{book.data.language}}</h5>
-        <h5>Publisher: {{book.data.publication}}</h5>
+        <h4>Language: {{book.data.language|titlecase}}</h4>
+        <h4>Publisher: {{book.data.publication|titlecase}}</h4>
         <h4>Price: {{book.data.price}}</h4>
-        <h5>Book Status: {{book.data.book_status}}</h5>
-        
+        <h4>Book Status: {{book.data.book_status}}</h4>
+        <ngx-star-rating [(ngModel)]="avgrating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
+        &nbsp;<h4>Rating: </h4>
         <!-- <div class=col-md-12>
             <div ng-repeat="rating in ratings">
                 <div star-rating rating-value="rating.current" max="rating.max"
@@ -41,10 +42,6 @@
                 <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}</li>
             </ul>
         </div>
-        <!-- <div class="commentdiv">
-            <textarea placeholder="Please provide comments here..."></textarea><br>
-            <button type="button" class="btn text-light">Post</button>
-        </div><br> -->
         <button type="button" class="btn text-light" (click)="back()">Go Back</button>
     </div>
 </div>

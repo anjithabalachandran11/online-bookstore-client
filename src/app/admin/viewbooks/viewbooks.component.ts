@@ -15,7 +15,9 @@ export class ViewbooksComponent implements OnInit {
   sortoption:any
   url='http://localhost:3000'
   state:boolean=false
+
   constructor(private router:Router, private http:HttpClient, private sr:ServicesService) { 
+
     let option="book_id"
     const data={
         option,
@@ -83,6 +85,7 @@ export class ViewbooksComponent implements OnInit {
     localStorage.setItem("cbook",book.book_id)
     this.router.navigateByUrl('/admin/book')
   }
+  
   ngOnInit(): void {
   }
 

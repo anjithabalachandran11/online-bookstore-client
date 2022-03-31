@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer/books">Books</a></li>
-                <li class="nav-item"><h4 class="nav-link active">Welcome....</h4></li>
+                <li class="nav-item"><h4 class="nav-link active">WELCOME   {{name}}...</h4></li>
             </ul>
             <ul>
                 <li><button type="submit" class="btn text-light" style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button></li>
@@ -15,39 +15,31 @@
         </div>
     </div>
 </nav>
-<!-- <div class="container ">
-    <div class="row card" style="width: 18rem;">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">xzvxc</div>
-        <div class="col-lg-3"></div>
-    </div>
-</div> -->
+
 <div class="card" style="width: 50rem; height: auto;">
-    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <!-- <img class="card-img-top" src="/src/assets/book logo.jpg" alt="Card image cap"> -->
     <div class="card-body">
-        <h2 class="card-title">{{book.data.book_name}}</h2>
-        <h3>Author: {{book.data.author}}</h3>
+        <h2 class="card-title">{{book.data.book_name}}|</h2>
+        <h3>Author: {{book.data.author|titlecase}}</h3>
         <p class="card-text">{{book.data.description}}</p>
-        <h5>LANGUAGE: {{book.data.language}}</h5>
-        <h5>Publisher: {{book.data.publication}}</h5>
-        <h4>Price: {{book.data.price}}</h4>
-        
-        <!-- <div class=col-md-12>
-            <div ng-repeat="rating in ratings">
-                <div star-rating rating-value="rating.current" max="rating.max"
-                    on-rating-selected="getSelectedRating(rating)"></div>
-            </div>
-        </div> -->
+        <h4>Language: {{book.data.language|titlecase}}</h4>
+        <h4>Publisher: {{book.data.publication|titlecase}}</h4>
+        <h3>Price: {{book.data.price}}</h3>
+        <ngx-star-rating [(ngModel)]="avgrating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
+        &nbsp;<h4>Rating: </h4>
         <div>
-            <h5>Comments</h5>
+            <h4>Comments</h4>
             <ul *ngFor="let comment of book.data.comments">
-                <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}</li>
+                <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}</li><button *ngif="comment.user_id===id">edit</button>
             </ul>
         </div>
-        <div class="commentdiv">
+        <h4>Please provide rating and comment</h4>
+        <ngx-star-rating [(ngModel)]="rating" [id]="'rating'" [disabled]="disable"></ngx-star-rating>
+        &nbsp;<div class="commentdiv">
             <textarea placeholder="Please provide comments here..." name="comment" [(ngModel)]="comment"></textarea><br>
-            <button type="button" class="btn text-light" (click)="postcomment(comment)">Post</button>
-        </div><br>
-        <button type="button" class="btn text-light" (click)="back()">Go Back</button>
+            <br><button type="button" class="btn text-light" (click)="postcomment(comment)">Post</button>&nbsp;
+            <button type="button" class="btn text-light" (click)="back()">Go Back</button>
+        </div>
+        
     </div>
 </div>

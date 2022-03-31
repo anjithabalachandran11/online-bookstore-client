@@ -7,17 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./adminpage.component.css']
 })
 export class AdminpageComponent implements OnInit {
+
   btnvalue:any
+
   constructor(private router:Router) { }
 
   btnclick(val:any){
     this.btnvalue=val
     console.log(val,this.btnvalue)
   }
+
   logout(){
     localStorage.clear()
     this.router.navigateByUrl('/admin')
   }
+  
   ngOnInit(): void {
   }
 

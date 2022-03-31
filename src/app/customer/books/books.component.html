@@ -6,7 +6,7 @@
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><h4 class="nav-link active">Welcome....</h4></li>
+                <li class="nav-item"><h4 class="nav-link active">WELCOME   {{name}}...</h4></li>
             </ul>
             <ul>
                 <li><button type="submit" class="btn text-light" style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button></li>
@@ -19,7 +19,6 @@
     <form style="text-align: center;">
         <label style="color: rgb(60, 25, 143);">Sort by: </label>&nbsp;
         <select size="1" name="sortoption" [(ngModel)]="sortoption">
-          <option valur="book_id">Book Id</option>
           <option value="book_name">Book Name</option>
           <option value="author">Author's Name</option>
           <option value="price">Price</option>
@@ -34,22 +33,15 @@
                 <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                 <div class="card-body">
                     <h2 class="card-title">{{book.book_name}}</h2>
-                    <h3>Author: {{book.author}}</h3>
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p> -->
-                    <h5>LANGUAGE: {{book.language}}</h5>
-                    <h5>Publisher: {{book.publication}}</h5>
+                    <h3>Author: {{book.author|titlecase}}</h3>
+                    <h5>LANGUAGE: {{book.language|titlecase}}</h5>
+                    <h5>Publisher: {{book.publication|titlecase}}</h5>
+                    <!-- <ngx-star-rating [(ngModel)]="book.averagerating" [id]="'ratings'" [disabled]="true"></ngx-star-rating> -->
                     <h4>Price: {{book.price}}</h4>
                     <button class="btn text-light" (click)="view(book.book_id)">View Book</button>
                     
-                    <!-- <div class=col-md-12>
-                        <div ng-repeat="rating in ratings">
-                            <div star-rating rating-value="rating.current" max="rating.max"
-                                on-rating-selected="getSelectedRating(rating)"></div>
-                        </div>
-                    </div> -->
                 </div>
-            </div>
+            </div><br>
         </div>
     </div>
 </div>

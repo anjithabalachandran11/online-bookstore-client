@@ -19,7 +19,7 @@
 <div class="card" style="width: 50rem; height: auto;">
     <!-- <img class="card-img-top" src="/src/assets/book logo.jpg" alt="Card image cap"> -->
     <div class="card-body">
-        <h2 class="card-title">{{book.data.book_name}}|</h2>
+        <h2 class="card-title">{{book.data.book_name}}</h2>
         <h3>Author: {{book.data.author|titlecase}}</h3>
         <p class="card-text">{{book.data.description}}</p>
         <h4>Language: {{book.data.language|titlecase}}</h4>
@@ -30,7 +30,9 @@
         <div>
             <h4>Comments</h4>
             <ul *ngFor="let comment of book.data.comments">
-                <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}</li><button *ngif="comment.user_id===id">edit</button>
+                <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}
+                    <input type='text' name="newcomment" [(ngModel)]="newcomment" *ngIf="comment.user_id===id"><button *ngIf="comment.user_id===id" (click)='editcomment()'>edit</button>
+                </li>
             </ul>
         </div>
         <h4>Please provide rating and comment</h4>

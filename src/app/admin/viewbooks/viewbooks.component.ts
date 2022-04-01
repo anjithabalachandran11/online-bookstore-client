@@ -85,7 +85,23 @@ export class ViewbooksComponent implements OnInit {
     localStorage.setItem("cbook",book.book_id)
     this.router.navigateByUrl('/admin/book')
   }
-  
+
+
+  // function printStudents(pageNumber, nPerPage) {
+    //     print( "Page: " + pageNumber );
+    //     db.students.find()
+    //                .sort( { _id: 1 } )
+    //                .skip( pageNumber > 0 ? ( ( pageNumber - 1 ) * nPerPage ) : 0 )
+    //                .limit( nPerPage )
+    //                .forEach( student => {
+    //                  print( student.name );
+    //                } );
+    //   }
+  page=0
+  next(){
+    this.page=this.page+1
+    
+  }
   ngOnInit(): void {
   }
 

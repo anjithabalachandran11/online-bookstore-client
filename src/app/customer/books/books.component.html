@@ -29,15 +29,16 @@
         </form><br>
     <div class="row">
         <div class="col-lg-4" *ngFor="let book of books.books" >
-            <div class="card" style="height: 300px;">
+            <div class="card" style="height:450px;">
                 <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                 <div class="card-body">
                     <h2 class="card-title">{{book.book_name}}</h2>
                     <h3>Author: {{book.author|titlecase}}</h3>
                     <h5>LANGUAGE: {{book.language|titlecase}}</h5>
                     <h5>Publisher: {{book.publication|titlecase}}</h5>
-                    <!-- <ngx-star-rating [(ngModel)]="book.averagerating" [id]="'ratings'" [disabled]="true"></ngx-star-rating> -->
                     <h4>Price: {{book.price}}</h4>
+                    <ngx-star-rating [(ngModel)]="book.averagerating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
+                    <br><h4>Rating:</h4>
                     <button class="btn text-light" (click)="view(book.book_id)">View Book</button>
                     
                 </div>
@@ -45,3 +46,4 @@
         </div>
     </div>
 </div>
+

@@ -20,10 +20,12 @@ export class ViewbookComponent implements OnInit {
   rating:any
   avgrating:any
   disable=false
-
+  iseditable=false
+  newcomment:any
   constructor(private router:Router, private sr:ServicesService, private http:HttpClient) {
 
-    const bookid=this.sr.bookid
+    //const bookid=this.sr.bookid
+    const bookid=localStorage.getItem("cbook")
     const data={
       bookid
     }
@@ -31,17 +33,18 @@ export class ViewbookComponent implements OnInit {
       if(result){
         this.book=result
         //console.log(this.book.data.comments)
-        localStorage.setItem("cbook",this.book.data.book_id)
-        let rate=0
-        let count=0
-        for(let b of this.book.data.comments){
-          //console.log(b.rating)
-          if(parseInt(b.rating)>0){
-            count=count+1
-          }
-          rate=rate+parseInt(b.rating)
-        }
-        this.avgrating=rate/count
+        //localStorage.setItem("cbook",this.book.data.book_id)
+        this.avgrating=this.book.data.averagerating
+        // let rate=0
+        // let count=0
+        // for(let b of this.book.data.comments){
+        //   //console.log(b.rating)
+        //   if(parseInt(b.rating)>0){
+        //     count=count+1
+        //   }
+        //   rate=rate+parseInt(b.rating)
+        // }
+        // this.avgrating=rate/count
         //console.log("avgrating: ",this.avgrating,rate,count)
       }
     })
@@ -59,16 +62,34 @@ export class ViewbookComponent implements OnInit {
       comment,
       rating
     }
-    this.http.put(this.url+'/postcomment',data).subscribe((result)=>{
+    this.http.post(this.url+'/postcomment',data).subscribe((result)=>{
       if(result){
         //console.log("post result",result)
         this.router.navigateByUrl('/viewbook')
       }
     })
   }
+  editcomment(){
+    let userid=localStorage.getItem("userid")
+    let bookid=localStorage.getItem("cbook")
+    let newcomment=this.newcomment
+    //console.log(newcomment)
+    const data={
+      userid,
+      bookid,
+      newcomment
+    }
+    this.http.put(this.url+'/editcomment',data).subscribe((result)=>{
+      if(result){
+        //console.log(result)
+        //this.router.navigateByUrl('/viewbook')
+        window.location.reload()
+      }
+    })
 
+  }
   back(){
-    localStorage.removeItem("cbook")
+    //localStorage.removeItem("cbook")
     this.router.navigateByUrl('/books')
   }
 

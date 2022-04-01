@@ -11,12 +11,15 @@ export class ServicesService {
 
   constructor(private router:Router) { }
 
-  viewbook(id:any){
-    this.bookid=id
-    this.router.navigateByUrl('/customer/viewbook')
-  }
+  // viewbook(id:any){
+  //   this.bookid=id
+  //   this.router.navigateByUrl('/customer/viewbook')
+  // }
   adminviewbook(id:any){
     this.bookid=id
+  }
+  viewbook(){
+    this.router.navigateByUrl('/customer/viewbook')
   }
   
 }

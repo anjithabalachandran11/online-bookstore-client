@@ -15,12 +15,14 @@ export class ViewusersComponent implements OnInit {
   sortoption:any
   userdata:any
   url='http://localhost:3000'
+  //pageNumber=0
 
   constructor(private router:Router, private http:HttpClient) {
-
+    //let pageNumber=this.pageNumber
     let option="user_id"
     const data={
       option,
+      //pageNumber
     }
     this.http.post(this.url+'/viewuser',data).subscribe((result)=>{
       if(result){
@@ -33,8 +35,10 @@ export class ViewusersComponent implements OnInit {
   }
 
   viewusers(option:any){
+    //let pageNumber=this.pageNumber
     const data={
       option,
+      //pageNumber
     }
     this.http.post(this.url+'/viewuser',data).subscribe((result)=>{
       if(result){
@@ -81,7 +85,20 @@ export class ViewusersComponent implements OnInit {
   back(){
     window.location.reload()
   }
+  // prev(){
+  //   if(this.pageNumber<0){
+  //     this.pageNumber=0
+  //   }
+  //   else{
+  //     this.pageNumber=this.pageNumber-1
+  //   }
+    
+  // }
   
+  // next(){
+  //   this.pageNumber=this.pageNumber+1
+  // }
+
   ngOnInit(): void {
   }
 

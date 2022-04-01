@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   url='http://localhost:3000'
   current_user:any
 
-  constructor( private router:Router, private http:HttpClient, private sr:ServicesService) { }
+  constructor( private router:Router, private http:HttpClient) { }
 
   back(){
     this.router.navigateByUrl('/customer')

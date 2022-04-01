@@ -48,8 +48,13 @@ export class BooksComponent implements OnInit {
     })
   }
 
+  // view(id:any){
+  //   this.sr.viewbook(id)
+    
+  // }
   view(id:any){
-    this.sr.viewbook(id)
+    localStorage.setItem("cbook",id)
+    this.sr.viewbook()
   }
 
   ngOnInit(): void {

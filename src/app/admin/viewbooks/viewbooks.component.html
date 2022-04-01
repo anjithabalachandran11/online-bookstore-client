@@ -23,7 +23,8 @@
           <th scope="col">Publisher</th>
           <th scope="col">Price</th>
           <th scope="col">Language</th>
-          <th scope="col">Status</th>
+          <th scope="col">Average Rating</th>
+          <th scope="col">Book Status</th>
           <th scope="col">Add</th>
           <th scope="col">Delete</th>
           <th scope="col">View</th>
@@ -37,14 +38,15 @@
           <td  scope="col" value="" >{{i.publication}}</td>
           <td  scope="col" value="" >{{i.price}}</td>
           <td  scope="col" value="" >{{i.language}}</td>
+          <td  scope="col" value="" >{{i.averagerating}}</td>
           <td  scope="col" value="" >{{i.book_status}}</td>
           <td scope="col"><button type="button" class="btn text-light" (click)="addbook(i)">Add</button></td>
           <td scope="col"><button type="button" class="btn text-light" (click)="deletebook(i)">Delete</button></td>
           <td scope="col"><button type="button" class="btn text-light" (click)="viewselectedbook(i)">View</button></td>
         </tr>
         </tbody>
+        <button type="button" class="btn text-light">prev</button>&nbsp;&nbsp;
+        <button type="button" class="btn text-light">next</button>
       </table>
-      <button type="button" class="btn text-light" *ngIf="data==true">prev</button>&nbsp;&nbsp;
-      <button type="button" class="btn text-light" *ngIf="data==true">next</button>
 </div>
 

@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     password : new FormControl('',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9]*'), Validators.minLength(5)])),
     cpassword : new FormControl('',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9]*'), Validators.minLength(5)]))
   })
+  
   passwordmatch:any
   url='http://localhost:3000'
 

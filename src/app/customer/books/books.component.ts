@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { ServicesService } from 'src/app/service/services.service';
 
 
@@ -12,46 +11,45 @@ import { ServicesService } from 'src/app/service/services.service';
 
 export class BooksComponent implements OnInit {
 
-  url='http://localhost:3000'
   books:any
   sortoption:any
   name=localStorage.getItem("name")
 
-  constructor(private router:Router, private http:HttpClient, private sr:ServicesService) {
-
+  constructor(private router:Router, private sr:ServicesService) {
     let option="book_id"
-    const data={
-      option
-    }
-    this.http.post(this.url+'/books',data).subscribe((result)=>{
-      if(result){
+
+    this.sr.getbooks(option).subscribe((result)=>{
+      const getbooksresult = JSON.parse(JSON.stringify(result))
+      if(getbooksresult.statuscode==200){
         this.books=result
       }
+      else{
+        alert(getbooksresult.message)
+        this.router.navigateByUrl('/customer')
+      }
     })
-
-   }
+  }
 
   logout(){
+    //window.location.reload()
     localStorage.clear()
+    this.books=null
     this.router.navigateByUrl('/customer')
   }
 
   getbooks(option:any){
-    const data={
-      option
-    }
-    console.log(option)
-    this.http.post(this.url+'/books',data).subscribe((result)=>{
-      if(result){
+    this.sr.getbooks(option).subscribe((result)=>{
+      const getbooksresult=JSON.parse(JSON.stringify(result))
+      if(getbooksresult.statuscode==200){
         this.books=result
+      }
+      else{
+        alert(getbooksresult.message)
+        this.router.navigateByUrl('/customer')
       }
     })
   }
 
-  // view(id:any){
-  //   this.sr.viewbook(id)
-    
-  // }
   view(id:any){
     localStorage.setItem("cbook",id)
     this.sr.viewbook()
@@ -60,5 +58,4 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
 }

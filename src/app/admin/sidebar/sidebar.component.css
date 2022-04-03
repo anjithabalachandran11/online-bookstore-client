@@ -1,0 +1,13 @@
+.sidebar-item{
+    border-style: ridge;
+    border-color: rgb(216, 207, 224); 
+    background-color: rgb(227, 227, 240);
+    color: rgb(83, 2, 235);
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    margin-top: 20px;
+    width: 100%;
+    text-decoration: none;
+}

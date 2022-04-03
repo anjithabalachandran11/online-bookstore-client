@@ -6,44 +6,49 @@
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><h4 class="nav-link active">WELCOME   {{name}}...</h4></li>
+                <li class="nav-item">
+                    <h4 class="nav-link active">Welcome {{name|titlecase}}...</h4>
+                </li>
             </ul>
             <ul>
-                <li><button type="submit" class="btn text-light" style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button></li>
+                <li><button type="submit" class="btn text-light"
+                        style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
     <h1 style="text-align: center; color: rgb(60, 25, 143);">All Books</h1>
+
     <form style="text-align: center;">
         <label style="color: rgb(60, 25, 143);">Sort by: </label>&nbsp;
         <select size="1" name="sortoption" [(ngModel)]="sortoption">
-          <option value="book_name">Book Name</option>
-          <option value="author">Author's Name</option>
-          <option value="price">Price</option>
-          <option value="language">Language</option>
-          <option value="publication">Publication</option>
+            <option value="book_name">Book Name</option>
+            <option value="author">Author's Name</option>
+            <option value="price">Price</option>
+            <option value="language">Language</option>
+            <option value="publication">Publication</option>
         </select>&nbsp;
         <button type="button" class="btn text-light" (click)="getbooks(sortoption)">Sort</button>&nbsp;
-        </form><br>
+    </form><br>
+
     <div class="row">
-        <div class="col-lg-4" *ngFor="let book of books.books" >
-            <div class="card" style="height:450px;">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="col-lg-4" *ngFor="let book of books.books">
+            <div class="card" style="height:460px;">
                 <div class="card-body">
                     <h2 class="card-title">{{book.book_name}}</h2>
                     <h3>Author: {{book.author|titlecase}}</h3>
                     <h5>LANGUAGE: {{book.language|titlecase}}</h5>
                     <h5>Publisher: {{book.publication|titlecase}}</h5>
                     <h4>Price: {{book.price}}</h4>
-                    <ngx-star-rating [(ngModel)]="book.averagerating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
-                    <br><h4>Rating:</h4>
+                    <ngx-star-rating [(ngModel)]="book.averagerating" [id]="'ratings'" [disabled]="true">
+                    </ngx-star-rating>
+                    <br>
+                    <h4>Rating:</h4>
                     <button class="btn text-light" (click)="view(book.book_id)">View Book</button>
-                    
                 </div>
             </div><br>
         </div>
     </div>
 </div>
-

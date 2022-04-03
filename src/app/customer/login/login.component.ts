@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup,Validator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { ServicesService } from 'src/app/service/services.service';
 
 
 @Component({
@@ -10,6 +9,7 @@ import { ServicesService } from 'src/app/service/services.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   logindata=new FormGroup({
@@ -22,18 +22,19 @@ export class LoginComponent implements OnInit {
 
   constructor( private router:Router, private http:HttpClient) { }
 
-  back(){
+  cancel(){
     this.router.navigateByUrl('/customer')
   }
 
   login(){
-    //console.log(this.logindata)
     let username=this.logindata.value.username
     let password=this.logindata.value.password
+
     const data={
       username,
       password
     }
+
     this.http.post(this.url+'/login',data).subscribe((result)=>{
       this.current_user=JSON.parse(JSON.stringify(result))
       if(this.current_user.statuscode==200){
@@ -42,7 +43,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userid",this.current_user.user.user_id)
         localStorage.setItem("name",this.current_user.user.name)
         localStorage.setItem('u_id',this.current_user.user._id)
-        this.router.navigateByUrl('/books')
+        localStorage.setItem("token",this.current_user.token)
+        this.router.navigateByUrl('customer/books')
       }
       else if(this.current_user.statuscode==201){
         alert(this.current_user.message)

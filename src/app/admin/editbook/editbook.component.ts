@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validator, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { ServicesService } from 'src/app/service/services.service';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
+const options ={
+  headers : new HttpHeaders()
+}
 
 
 @Component({
@@ -35,6 +39,15 @@ export class EditbookComponent implements OnInit {
     let language = this.editdata.value.language
     let publisher = this.editdata.value.publisher
     let price = this.editdata.value.price
+
+    const tokens=localStorage.getItem(("token"))
+    let headers = new HttpHeaders()
+
+    if(tokens){
+      headers = headers.append('x-access-token',tokens)
+      options.headers=headers
+    }
+
     const data={
       book_id,
       book_name,
@@ -44,26 +57,19 @@ export class EditbookComponent implements OnInit {
       publisher,
       price
     }
-    this.http.put(this.url+'/edit',data).subscribe((result)=>{
-      alert(JSON.parse(JSON.stringify(result)).message)
+    
+    this.http.put(this.url+'/edit',data,options).subscribe((result)=>{
+      const editresult = JSON.parse(JSON.stringify(result))
+      if(editresult.statuscode==404){
+        alert(editresult.message)
+        this.router.navigateByUrl('/admin')
+      }
+      else{
+        alert(JSON.parse(JSON.stringify(result)).message)
+      }
     })
     window.location.reload()
   }
-
-  cancel(){
-    window.location.reload()
-  }
-
-  // setbook(){
-  //   this.editdata.value.bookid=this.sr.editbook.book_id
-  //   console.log(this.editdata.value.bookid)
-  //   let book_name=this.editdata.value.bookname
-  //   let author = this.editdata.value.author
-  //   let description = this.editdata.value.description
-  //   let language = this.editdata.value.language
-  //   let publisher = this.editdata.value.publisher
-  //   let price = this.editdata.value.price
-  // }
 
   ngOnInit(): void {
   }

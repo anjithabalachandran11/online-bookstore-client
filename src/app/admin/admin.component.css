@@ -1,27 +1,57 @@
 .nav-link{
-    color: white!important;
+    color: white;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: px;
 }
 nav{
     background-color: rgb(89, 89, 202);
+    margin-top: 5px;
 }
 .navbar-brand{
-    color: white!important;
+    color: white;
     font-style:italic;
     font-size: 25px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
 }
 .nav-item{
+    
     font-size: 18px;
 }
-p{
+a{
+    text-decoration:none;
+}
+
+.Formdiv{
+    margin-top: 10%;
+}
+form{
     border-style: groove;
-    border-color: rgb(227, 216, 238);
-    border-radius: 5px;
+    border-color: white;
     border-width: 5px;
+    border-radius: 12px;
+    background-color: white;
     padding: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
     text-align: center;
-    color:rgb(98, 70, 161);
-    font-size: 15px;
-    font-weight: bold;
+}
+h1{
+    color:rgb(84, 35, 163);
+}
+label{
+    color: darkblue;
+}
+input{
+    border-radius: 8px;
+    width:75%;
+    border-color: rgb(66, 66, 161);
+}
+.btn{
+    background-color: rgb(66, 66, 161);
+}
+.err{
+    color: red;
+    font-style: italic;
 }

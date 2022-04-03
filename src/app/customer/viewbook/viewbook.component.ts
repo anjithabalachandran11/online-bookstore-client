@@ -1,7 +1,7 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesService } from 'src/app/service/services.service';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -12,40 +12,28 @@ import { HttpClient } from '@angular/common/http';
 
 export class ViewbookComponent implements OnInit {
 
-  url='http://localhost:3000'
   book:any
   comment:any
   name=localStorage.getItem("name")
   id=localStorage.getItem("u_id")
-  rating:any
+  rating=0
   avgrating:any
   disable=false
   iseditable=false
   newcomment:any
-  constructor(private router:Router, private sr:ServicesService, private http:HttpClient) {
 
-    //const bookid=this.sr.bookid
+  constructor(private router:Router, private sr:ServicesService) {
+
     const bookid=localStorage.getItem("cbook")
-    const data={
-      bookid
-    }
-    this.http.post(this.url+'/book/',data).subscribe((result)=>{
-      if(result){
+    this.sr.userviewbook(bookid).subscribe((result)=>{
+      const bookresult=JSON.parse(JSON.stringify(result))
+      if(bookresult.statuscode==200){
         this.book=result
-        //console.log(this.book.data.comments)
-        //localStorage.setItem("cbook",this.book.data.book_id)
         this.avgrating=this.book.data.averagerating
-        // let rate=0
-        // let count=0
-        // for(let b of this.book.data.comments){
-        //   //console.log(b.rating)
-        //   if(parseInt(b.rating)>0){
-        //     count=count+1
-        //   }
-        //   rate=rate+parseInt(b.rating)
-        // }
-        // this.avgrating=rate/count
-        //console.log("avgrating: ",this.avgrating,rate,count)
+      }
+      else{
+        alert(bookresult.message)
+        this.router.navigateByUrl('/customer')
       }
     })
   }
@@ -54,42 +42,44 @@ export class ViewbookComponent implements OnInit {
     let userid=localStorage.getItem("userid")
     let bookid=localStorage.getItem("cbook")
     let rating=this.rating
-    //console.log(userid,bookid)
-    //console.log("comment",comment)
-    const data={
-      userid,
-      bookid,
-      comment,
-      rating
-    }
-    this.http.post(this.url+'/postcomment',data).subscribe((result)=>{
+    this.sr.postcomment(userid,bookid,comment,rating).subscribe((result)=>{
       if(result){
-        //console.log("post result",result)
         this.router.navigateByUrl('/viewbook')
       }
     })
   }
-  editcomment(){
+
+  editcomment(comment:any){
     let userid=localStorage.getItem("userid")
     let bookid=localStorage.getItem("cbook")
-    let newcomment=this.newcomment
-    //console.log(newcomment)
-    const data={
-      userid,
-      bookid,
-      newcomment
-    }
-    this.http.put(this.url+'/editcomment',data).subscribe((result)=>{
-      if(result){
-        //console.log(result)
-        //this.router.navigateByUrl('/viewbook')
+    let rating=this.rating
+    this.sr.editcomment(userid,bookid,comment,rating).subscribe((result)=>{
+      const editresult=JSON.parse(JSON.stringify(result))
+      if(editresult.statuscode==200){
         window.location.reload()
       }
+      else{
+        alert(editresult.message)
+      }
     })
-
   }
-  back(){
-    //localStorage.removeItem("cbook")
+
+  deletecomment(){
+    let userid=localStorage.getItem("userid")
+    let bookid=localStorage.getItem("cbook")
+    let rating=this.rating
+    this.sr.deletecomment(userid,bookid).subscribe((result)=>{
+      const deleteresult=JSON.parse(JSON.stringify(result))
+      if(deleteresult.statuscode==200){
+        window.location.reload()
+      }
+      else{
+        alert(deleteresult.message)
+      }
+    })
+  }
+
+  goback(){
     this.router.navigateByUrl('/books')
   }
 

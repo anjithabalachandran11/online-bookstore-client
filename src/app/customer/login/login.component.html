@@ -7,7 +7,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer/register">Register</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page"
+                        href="/customer/register">Register</a></li>
             </ul>
         </div>
     </div>
@@ -16,24 +17,28 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-                <form [formGroup]="logindata" (ngSubmit)="login()">
-                    <h2>CUSTOMER LOGIN</h2><br>
-                    <label>User Name</label><br>
-                    <input type="text" name="username" formControlName="username" placeholder="Enter username"><br>
-                    <div *ngIf="logindata.controls['username'].errors&&logindata.controls['username'].touched">
-                        <div class="err" *ngIf="logindata.controls['username'].errors['required']">Enter username</div>
-                    </div>
-                    <br>
-                    <label>Password</label><br>
-                    <input type="password" name="password" formControlName="password" placeholder="Password"><br>
-                    <div *ngIf="logindata.controls['password'].errors&&logindata.controls['password'].touched">
-                        <div class="err" *ngIf="logindata.controls['password'].errors['required']">Enter password</div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn text-light" [disabled]="!logindata.valid">Login</button>&nbsp;&nbsp;
-                    <button type="submit" class="btn text-light" (click)="back()">Cancel</button>&nbsp;&nbsp;
-                    <a routerLink="/customer/register">register</a>
-                </form>
+            <form [formGroup]="logindata" (ngSubmit)="login()">
+                <h2>CUSTOMER LOGIN</h2><br>
+
+                <label>User Name</label><br>
+                <input type="text" name="username" formControlName="username" placeholder="Enter username"><br>
+                <div *ngIf="logindata.controls['username'].errors&&logindata.controls['username'].touched">
+                    <div class="err" *ngIf="logindata.controls['username'].errors['required']">Enter username</div>
+                </div>
+                <br>
+
+                <label>Password</label><br>
+                <input type="password" name="password" formControlName="password" placeholder="Password"><br>
+                <div *ngIf="logindata.controls['password'].errors&&logindata.controls['password'].touched">
+                    <div class="err" *ngIf="logindata.controls['password'].errors['required']">Enter password</div>
+                </div>
+                <br>
+
+                <button type="submit" class="btn text-light" [disabled]="!logindata.valid">Login</button>&nbsp;&nbsp;
+                <button type="submit" class="btn text-light" (click)="cancel()">Cancel</button>&nbsp;&nbsp;
+                <a routerLink="/customer/register">register</a>
+                
+            </form>
         </div>
         <div class="col-lg-3"></div>
     </div>

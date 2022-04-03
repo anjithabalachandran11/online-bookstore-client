@@ -1,3 +1,4 @@
+<!-- navbar start -->
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container px-5">
         <a class="navbar-brand" href="#!">BookStore</a>
@@ -8,18 +9,20 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin/adminpage">Home</a>
                 </li>&nbsp;&nbsp;&nbsp;
-                <!-- <li class="nav-item"><a class="nav-link" aria-current="page" href="/admin">Logout</a></li>
-                &nbsp;&nbsp;&nbsp; -->
                 <li class="nav-item">
                     <h4 class="nav-link" aria-current="page">Welcome..</h4>
                 </li>&nbsp;
             </ul>
-            <button type="submit" class="btn text-light" style="float: right; padding: 10px; margin-top: 5px; font-size: medium;" (click)="logout()">Logout</button>
+            <button type="submit" class="btn text-light"
+                style="float: right; padding: 10px; margin-top: 5px; font-size: medium;"
+                (click)="logout()">Logout</button>
         </div>
     </div>
 </nav>
+<!-- navbar end -->
+
+<!-- div start -->
 <div class="card" style="width: 50rem; height: auto;">
-    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body">
         <h2 class="card-title">{{book.data.book_name}}</h2>
         <h3>Author: {{book.data.author|titlecase}}</h3>
@@ -30,18 +33,13 @@
         <h4>Book Status: {{book.data.book_status}}</h4>
         <ngx-star-rating [(ngModel)]="avgrating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
         &nbsp;<h4>Rating: </h4>
-        <!-- <div class=col-md-12>
-            <div ng-repeat="rating in ratings">
-                <div star-rating rating-value="rating.current" max="rating.max"
-                    on-rating-selected="getSelectedRating(rating)"></div>
-            </div>
-        </div> -->
         <div>
             <h5>Comments</h5>
             <ul *ngFor="let comment of book.data.comments">
-                <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}</li>
+                <li style="list-style-type: none;">{{comment.username}} :- {{comment.comment}}</li>
             </ul>
         </div>
         <button type="button" class="btn text-light" (click)="back()">Go Back</button>
     </div>
 </div>
+<!-- div end -->

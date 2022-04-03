@@ -6,18 +6,22 @@
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer/books">Books</a></li>
-                <li class="nav-item"><h4 class="nav-link active">WELCOME   {{name}}...</h4></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer/books">Books</a>
+                </li>
+                <li class="nav-item">
+                    <h4 class="nav-link active">Welcome {{name|titlecase}}...</h4>
+                </li>
             </ul>
             <ul>
-                <li><button type="submit" class="btn text-light" style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button></li>
+                <li><button type="submit" class="btn text-light"
+                        style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="card" style="width: 50rem; height: auto;">
-    <!-- <img class="card-img-top" src="/src/assets/book logo.jpg" alt="Card image cap"> -->
     <div class="card-body">
         <h2 class="card-title">{{book.data.book_name}}</h2>
         <h3>Author: {{book.data.author|titlecase}}</h3>
@@ -30,18 +34,22 @@
         <div>
             <h4>Comments</h4>
             <ul *ngFor="let comment of book.data.comments">
-                <li style="list-style-type: none;">{{comment.username}}   :-  {{comment.comment}}
-                    <input type='text' name="newcomment" [(ngModel)]="newcomment" *ngIf="comment.user_id===id"><button *ngIf="comment.user_id===id" (click)='editcomment()'>edit</button>
+                <li style="list-style-type: none;">{{comment.username}} :- {{comment.comment}}
                 </li>
             </ul>
         </div>
+        
         <h4>Please provide rating and comment</h4>
         <ngx-star-rating [(ngModel)]="rating" [id]="'rating'" [disabled]="disable"></ngx-star-rating>
         &nbsp;<div class="commentdiv">
             <textarea placeholder="Please provide comments here..." name="comment" [(ngModel)]="comment"></textarea><br>
             <br><button type="button" class="btn text-light" (click)="postcomment(comment)">Post</button>&nbsp;
-            <button type="button" class="btn text-light" (click)="back()">Go Back</button>
+            <button type="button" class="btn text-light" (click)="editcomment(comment)">Edit Your Comment and
+                Rating</button><br><br>
+            <button type="button" class="btn text-light" (click)="deletecomment()">Delete Your Comment and
+                Rating</button>&nbsp;
+            <button type="button" class="btn text-light" (click)="goback()">Go Back</button>
         </div>
-        
+
     </div>
 </div>

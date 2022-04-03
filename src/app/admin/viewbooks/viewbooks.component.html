@@ -1,52 +1,63 @@
-<div class="div1">
-    <h1>BOOKS DETAILS</h1>
-    <form>
-      <label style="color: rgb(60, 25, 143);">Sort by: </label>&nbsp;
-      <select size="1" name="sortoption" [(ngModel)]="sortoption">
-        <option valur="book_id">Book Id</option>
-        <option value="book_name">Book Name</option>
-        <option value="author">Author's Name</option>
-        <option value="price">Price</option>
-        <option value="language">Language</option>
-        <option value="publication">Publication</option>
-        <option value="book_status">Status</option>
-      </select>&nbsp;
-      <button type="button" class="btn text-light" (click)="viewdata(sortoption)">Sort</button>&nbsp;
-      <button type="button" class="btn text-light" (click)="back()">Back</button>&nbsp;
-      </form><br>
-    <table class="table table-bordered table-hover table-striped" *ngIf="data==true">
-        <thead>
-        <tr>
-          <th scope="col">Book Id</th>
-          <th scope="col">Book Name</th>
-          <th scope="col">Author</th>
-          <th scope="col">Publisher</th>
-          <th scope="col">Price</th>
-          <th scope="col">Language</th>
-          <th scope="col">Average Rating</th>
-          <th scope="col">Book Status</th>
-          <th scope="col">Add</th>
-          <th scope="col">Delete</th>
-          <th scope="col">View</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let i of bookdata.result">
-          <td  scope="col" value="">{{i.book_id}}</td>
-          <td  scope="col" value="" >{{i.book_name}}</td>
-          <td  scope="col" value="" >{{i.author}}</td>
-          <td  scope="col" value="" >{{i.publication}}</td>
-          <td  scope="col" value="" >{{i.price}}</td>
-          <td  scope="col" value="" >{{i.language}}</td>
-          <td  scope="col" value="" >{{i.averagerating}}</td>
-          <td  scope="col" value="" >{{i.book_status}}</td>
-          <td scope="col"><button type="button" class="btn text-light" (click)="addbook(i)">Add</button></td>
-          <td scope="col"><button type="button" class="btn text-light" (click)="deletebook(i)">Delete</button></td>
-          <td scope="col"><button type="button" class="btn text-light" (click)="viewselectedbook(i)">View</button></td>
-        </tr>
-        </tbody>
-        <button type="button" class="btn text-light">prev</button>&nbsp;&nbsp;
-        <button type="button" class="btn text-light">next</button>
-      </table>
-</div>
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-lg-3 ">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-lg-9">
+    <div class="div1">
+      <h1>BOOKS DETAILS</h1>
+      <form>
 
+        <label style="color: rgb(60, 25, 143);">Sort by: </label>&nbsp;
+        <select size="1" name="sortoption" [(ngModel)]="sortoption">
+          <option valur="book_id">Book Id</option>
+          <option value="book_name">Book Name</option>
+          <option value="author">Author's Name</option>
+          <option value="price">Price</option>
+          <option value="language">Language</option>
+          <option value="publication">Publication</option>
+          <option value="book_status">Status</option>
+        </select>&nbsp;
+        <button type="button" class="btn text-light" (click)="viewdata(sortoption)">Sort</button>
+      </form><br>
+
+      <table class="table table-bordered table-hover table-striped" *ngIf="data==true">
+        <thead>
+          <tr>
+            <th scope="col">Book Id</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Price</th>
+            <th scope="col">Language</th>
+            <th scope="col">Average Rating</th>
+            <th scope="col">Book Status</th>
+            <th scope="col">Add</th>
+            <th scope="col">Delete</th>
+            <th scope="col">View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of bookdata.result">
+            <td scope="col" value="">{{i.book_id}}</td>
+            <td scope="col" value="">{{i.book_name}}</td>
+            <td scope="col" value="">{{i.author}}</td>
+            <td scope="col" value="">{{i.publication}}</td>
+            <td scope="col" value="">{{i.price}}</td>
+            <td scope="col" value="">{{i.language}}</td>
+            <td scope="col" value="">{{i.averagerating}}</td>
+            <td scope="col" value="">{{i.book_status}}</td>
+            <td scope="col"><button type="button" class="btn text-light" (click)="addbook(i)">Add</button></td>
+            <td scope="col"><button type="button" class="btn text-light" (click)="deletebook(i)">Delete</button></td>
+            <td scope="col"><button type="button" class="btn text-light" (click)="viewselectedbook(i)">View</button>
+            </td>
+          </tr>
+        </tbody>
+
+        <!-- <button type="button" class="btn text-light">prev</button>&nbsp;&nbsp;
+            <button type="button" class="btn text-light">next</button> -->
+            
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup,Validator, Validators } from '@angular/forms';
+import {FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
+const options ={
+  headers : new HttpHeaders()
+}
 
 @Component({
   selector: 'app-addbook',
@@ -32,6 +36,14 @@ export class AddbookComponent implements OnInit {
     let language = this.bookdata.value.language
     let publisher = this.bookdata.value.publisher
     let price = this.bookdata.value.price
+
+    const tokens=localStorage.getItem(("token"))
+    let headers = new HttpHeaders()
+    if(tokens){
+      headers = headers.append('x-access-token',tokens)
+      options.headers=headers
+    }
+
     const data={
       book_id,
       book_name,
@@ -41,16 +53,21 @@ export class AddbookComponent implements OnInit {
       publisher,
       price
     }
-    this.http.post(this.url+'/addbook',data).subscribe((result)=>{
-      alert(JSON.parse(JSON.stringify(result)).message)
-    })
-    window.location.reload()
-  }
-  
-  back(){
-    window.location.reload()
-  }
 
+    this.http.post(this.url+'/addbook',data,options).subscribe((result)=>{
+      const addbookresult=JSON.parse(JSON.stringify(result))
+      if(addbookresult.statuscode==404){
+        alert(JSON.parse(JSON.stringify(result)).message)
+        this.router.navigateByUrl('/admin')
+      }
+      else{
+        alert(JSON.parse(JSON.stringify(result)).message)
+      }
+      
+    })
+
+    window.location.reload()
+  }
   ngOnInit(): void {
   }
 

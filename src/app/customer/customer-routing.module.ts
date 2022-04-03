@@ -17,4 +17,5 @@ const routes: Routes = [{ path: '', component: CustomerComponent },
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class CustomerRoutingModule { }

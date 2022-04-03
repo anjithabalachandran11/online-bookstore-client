@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AddbookComponent } from './addbook/addbook.component';
 import { AdminComponent } from './admin.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { BookComponent } from './book/book.component';
+import { EditbookComponent } from './editbook/editbook.component';
+import { ViewbooksComponent } from './viewbooks/viewbooks.component';
+import { ViewusersComponent } from './viewusers/viewusers.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
-  { path:'admin-login',component:AdminLoginComponent },
   { path:'adminpage', component:AdminpageComponent },
-  {path : 'book',component:BookComponent}
+  { path:'addbook', component:AddbookComponent },
+  { path:'editbook', component:EditbookComponent },
+  { path:'viewbooks',component:ViewbooksComponent},
+  { path:'viewusers',component:ViewusersComponent },
+  { path:'book',component:BookComponent}
 ];
 
 @NgModule({

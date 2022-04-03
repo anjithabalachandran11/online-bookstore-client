@@ -43,3 +43,16 @@ option{
     font-style: italic;
     font-size: small;
 }
+.col-lg-3{
+    border-style:ridge;
+    border-color: rgb(204, 204, 226);
+    border-radius: 5px;
+    width: 15%;
+    position:absolute;
+    height: 85%;
+    top: 85px;
+    left:8px;
+    z-index: 1;
+    overflow-x: hidden;
+    padding: 8px,8px; 
+}

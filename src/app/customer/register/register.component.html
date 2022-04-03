@@ -7,7 +7,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/customer/login">Login</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -16,48 +17,63 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-                <form [formGroup]="newuserdata" (ngSubmit)="register()">
-                    <h2>NEW CUSTOMER REGISTRATION</h2><br>
-                    <label>User Id</label><br>
-                    <input type="text" name="userid" formControlName="userid" placeholder="Enter user id"><br>
-                    <div *ngIf="newuserdata.controls['userid'].errors&&newuserdata.controls['userid'].touched">
-                        <div *ngIf="newuserdata.controls['userid'].errors['required']" class="err">Enter User Id</div>
-                        <div *ngIf="newuserdata.controls['userid'].errors['pattern']" class="err">User id should be a number</div>
-                        <div *ngIf="newuserdata.controls['userid'].errors['minlength']" class="err">Minimum length is 5</div>
+            <form [formGroup]="newuserdata" (ngSubmit)="register()">
+
+                <h2>NEW CUSTOMER REGISTRATION</h2><br>
+
+                <label>User Id</label><br>
+                <input type="text" name="userid" formControlName="userid" placeholder="Enter user id"><br>
+                <div *ngIf="newuserdata.controls['userid'].errors&&newuserdata.controls['userid'].touched">
+                    <div *ngIf="newuserdata.controls['userid'].errors['required']" class="err">Enter User Id</div>
+                    <div *ngIf="newuserdata.controls['userid'].errors['pattern']" class="err">User id should be a number
                     </div>
-                    <br>
-                    <label>User Name</label><br>
-                    <input type="text" name="username" formControlName="username" placeholder="Enter user name"><br>
-                    <div *ngIf="newuserdata.controls['username'].errors&&newuserdata.controls['username'].touched">
-                        <div *ngIf="newuserdata.controls['username'].errors['required']" class="err">Enter User Name</div>
+                    <div *ngIf="newuserdata.controls['userid'].errors['minlength']" class="err">Minimum length is 5
                     </div>
-                    <br>
-                    <label>Name</label><br>
-                    <input type="text" name="name" formControlName="name" placeholder="Enter name"><br>
-                    <div *ngIf="newuserdata.controls['name'].errors&&newuserdata.controls['name'].touched">
-                        <div *ngIf="newuserdata.controls['name'].errors['required']" class="err">Enter Name</div>
+                </div>
+                <br>
+
+                <label>User Name</label><br>
+                <input type="text" name="username" formControlName="username" placeholder="Enter user name"><br>
+                <div *ngIf="newuserdata.controls['username'].errors&&newuserdata.controls['username'].touched">
+                    <div *ngIf="newuserdata.controls['username'].errors['required']" class="err">Enter User Name</div>
+                </div>
+                <br>
+
+                <label>Name</label><br>
+                <input type="text" name="name" formControlName="name" placeholder="Enter name"><br>
+                <div *ngIf="newuserdata.controls['name'].errors&&newuserdata.controls['name'].touched">
+                    <div *ngIf="newuserdata.controls['name'].errors['required']" class="err">Enter Name</div>
+                </div>
+                <br>
+
+                <label>Password</label><br>
+                <input type="password" name="password" formControlName="password" placeholder="password"><br>
+                <div *ngIf="newuserdata.controls['password'].errors&&newuserdata.controls['password'].touched">
+                    <div *ngIf="newuserdata.controls['password'].errors['required']" class="err">Enter Password</div>
+                    <div *ngIf="newuserdata.controls['password'].errors['pattern']" class="err">Pass word should contain
+                        A-Za-z0-9</div>
+                    <div *ngIf="newuserdata.controls['password'].errors['minlength']" class="err">Minimum length is 5
                     </div>
-                    <br>
-                    <label>Password</label><br>
-                    <input type="password" name="password" formControlName="password" placeholder="password"><br>
-                    <div *ngIf="newuserdata.controls['password'].errors&&newuserdata.controls['password'].touched">
-                        <div *ngIf="newuserdata.controls['password'].errors['required']" class="err">Enter Password</div>
-                        <div *ngIf="newuserdata.controls['password'].errors['pattern']" class="err">Pass word should contain A-Za-z0-9</div>
-                        <div *ngIf="newuserdata.controls['password'].errors['minlength']" class="err">Minimum length is 5</div>
+                </div>
+                <br>
+
+                <label>Confirm Password</label><br>
+                <input type="password" name="cpassword" formControlName="cpassword" placeholder="confirm password"><br>
+                <div *ngIf="newuserdata.controls['cpassword'].errors&&newuserdata.controls['cpassword'].touched">
+                    <div *ngIf="newuserdata.controls['cpassword'].errors['required']" class="err">Enter Password</div>
+                    <div *ngIf="newuserdata.controls['cpassword'].errors['pattern']" class="err">Pass word should
+                        contain A-Za-Z0-9</div>
+                    <div *ngIf="newuserdata.controls['cpassword'].errors['minlength']" class="err">Minimum length is 5
                     </div>
-                    <br>
-                    <label>Confirm Password</label><br>
-                    <input type="password" name="cpassword" formControlName="cpassword" placeholder="confirm password"><br>
-                    <div *ngIf="newuserdata.controls['cpassword'].errors&&newuserdata.controls['cpassword'].touched">
-                        <div *ngIf="newuserdata.controls['cpassword'].errors['required']" class="err">Enter Password</div>
-                        <div *ngIf="newuserdata.controls['cpassword'].errors['pattern']" class="err">Pass word should contain A-Za-Z0-9</div>
-                        <div *ngIf="newuserdata.controls['cpassword'].errors['minlength']" class="err">Minimum length is 5</div>
-                    </div>
-                    <div *ngIf="passwordmatch==false" class="err">Password not match</div>
-                    <br>
-                    <button type="submit" class="btn text-light"[disabled]="!newuserdata.valid">Register</button>&nbsp;&nbsp;
-                    <button type="submit" class="btn text-light" (click)="back()">Cancel</button>
-                </form>
+                </div>
+
+                <div *ngIf="passwordmatch==false" class="err">Password not match</div><br>
+
+                <button type="submit" class="btn text-light"
+                    [disabled]="!newuserdata.valid">Register</button>&nbsp;&nbsp;
+                <button type="submit" class="btn text-light" (click)="back()">Cancel</button>
+
+            </form>
         </div>
         <div class="col-lg-3"></div>
     </div>

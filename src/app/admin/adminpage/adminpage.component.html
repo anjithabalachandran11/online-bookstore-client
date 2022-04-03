@@ -1,63 +1,7 @@
-<!-- Nav bar -->
-<nav class="navbar navbar-expand-lg navbar-dark ">
-    <div class="container px-5">
-        <a class="navbar-brand" href="#!">BookStore</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin/adminpage">Home</a>
-                </li>&nbsp;&nbsp;&nbsp;
-                <!-- <li class="nav-item"><a class="nav-link" aria-current="page" href="/admin">Logout</a></li>
-                &nbsp;&nbsp;&nbsp; -->
-                <li class="nav-item">
-                    <h4 class="nav-link" aria-current="page">Welcome..</h4>
-                </li>&nbsp;
-            </ul>
-            <button type="submit" class="btn text-light" style="float: right; padding: 10px; margin-top: 5px; font-size: medium;" (click)="logout()">Logout</button>
-        </div>
-    </div>
-</nav>
-<!-- Row -->
+<app-navbar></app-navbar>
 <div class="row">
-    <!-- Side Bar col-1 -->
     <div class="col-lg-3 ">
-        <button class="sidebar-item" (click)="btnclick(1)">View Books</button><br>
-        <button class="sidebar-item" (click)="btnclick(2)">Add Book</button><br>
-        <button class="sidebar-item" (click)="btnclick(3)">Edit Book</button><br>
-        <!-- <button class="sidebar-item" (click)="btnclick(4)">Delete Book</button><br> -->
-        <button class="sidebar-item" (click)="btnclick(4)">View Users</button><br>
+        <app-sidebar></app-sidebar>
     </div>
-    <!-- Side Bar col-1 -->
-    <!-- Page Content col-2 -->
-    <div class="col-lg-9">
-        <ng-container [ngSwitch]="btnvalue">
-
-            <ng-container *ngSwitchCase="1">
-                <ng-container *ngTemplateOutlet="viewbook"></ng-container>
-            </ng-container>
-            
-            <ng-container *ngSwitchCase="2">
-                <ng-container *ngTemplateOutlet="addbook"></ng-container>
-            </ng-container>
-
-            <ng-container *ngSwitchCase="3">
-                <ng-container *ngTemplateOutlet="editbook"></ng-container>
-            </ng-container>
-
-            <ng-container *ngSwitchCase="4">
-                <ng-container *ngTemplateOutlet="viewusers"></ng-container>
-            </ng-container>
-
-            <ng-template #viewbook><app-viewbooks></app-viewbooks></ng-template>
-            <ng-template #addbook><app-addbook></app-addbook></ng-template>
-            <ng-template #editbook><app-editbook></app-editbook></ng-template>
-            <ng-template #viewusers><app-viewusers></app-viewusers></ng-template>
-            <ng-container *ngSwitchDefault></ng-container>
-
-        </ng-container>
-    </div>
-    <!-- Page Content col-2 -->
+    <div class="col-lg-9"></div>
 </div>
-<!-- Row -->

@@ -24,13 +24,14 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private router:Router, private http:HttpClient) { }
+  
   register(){
-    //console.log(this.newuserdata)
     let user_id=this.newuserdata.value.userid
     let username=this.newuserdata.value.username
     let name=this.newuserdata.value.name
     let password=this.newuserdata.value.password
     let cpassword=this.newuserdata.value.cpassword
+
     if(password!=cpassword){
       this.passwordmatch=false;
     }
@@ -48,6 +49,7 @@ export class RegisterComponent implements OnInit {
       window.location.reload()
     } 
   }
+
   back(){
     this.router.navigateByUrl('/customer')
   }

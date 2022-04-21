@@ -35,11 +35,12 @@
             <th scope="col">Add</th>
             <th scope="col">Delete</th>
             <th scope="col">View</th>
+            <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of bookdata.result">
-            <td scope="col" value="">{{i.book_id}}</td>
+          <tr *ngFor="let i of currentBookData">
+            <td scope="col" value="">{{i?.book_id}}</td>
             <td scope="col" value="">{{i.book_name}}</td>
             <td scope="col" value="">{{i.author}}</td>
             <td scope="col" value="">{{i.publication}}</td>
@@ -51,13 +52,14 @@
             <td scope="col"><button type="button" class="btn text-light" (click)="deletebook(i)">Delete</button></td>
             <td scope="col"><button type="button" class="btn text-light" (click)="viewselectedbook(i)">View</button>
             </td>
+            <td scope="col"><button type="button" class="btn text-light" (click)="editbook(i)">Edit</button>
+            </td>
           </tr>
         </tbody>
-
-        <!-- <button type="button" class="btn text-light">prev</button>&nbsp;&nbsp;
-            <button type="button" class="btn text-light">next</button> -->
-            
       </table>
+      <button type="button" class="btn text-light" (click)="previous()" *ngIf="data==true">prev</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn text-light" (click)="next()" *ngIf="data==true">next</button>
     </div>
   </div>
 </div>

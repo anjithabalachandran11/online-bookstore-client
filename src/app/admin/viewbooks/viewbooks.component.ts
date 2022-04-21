@@ -18,7 +18,9 @@ export class ViewbooksComponent implements OnInit {
   bookdata:any
   sortoption:any
   url='http://localhost:3000'
-  state:boolean=false
+  count = 0
+  currentIndex = 0
+  currentBookData:any
 
   constructor(private router:Router, private http:HttpClient, private sr:ServicesService) { 
 
@@ -35,8 +37,8 @@ export class ViewbooksComponent implements OnInit {
         option,
     }
 
-    this.http.post(this.url+'/viewbook/',data,options).subscribe((result)=>{
-      const viewbookresult = JSON.parse(JSON.stringify(result))
+    this.http.post(this.url+'/viewbook/',data,options).subscribe(async (result)=>{
+      const viewbookresult = await JSON.parse(JSON.stringify(result))
       if(viewbookresult.statuscode==404){
         alert(viewbookresult.message)
         this.router.navigateByUrl('/admin')
@@ -44,6 +46,7 @@ export class ViewbooksComponent implements OnInit {
       else{
         this.bookdata=result
         this.data=true
+        this.page()
       }
     })
   }
@@ -61,8 +64,8 @@ export class ViewbooksComponent implements OnInit {
       sortoption,
     }
 
-    this.http.post(this.url+'/viewbook/',data,options).subscribe((result)=>{
-      const viewbookresult = JSON.parse(JSON.stringify(result))
+    this.http.post(this.url+'/viewbook/',data,options).subscribe(async (result)=>{
+      const viewbookresult = await JSON.parse(JSON.stringify(result))
       if(viewbookresult.statuscode==404){
         alert(viewbookresult.message)
         this.router.navigateByUrl('/admin')
@@ -70,10 +73,41 @@ export class ViewbooksComponent implements OnInit {
       else{
         this.bookdata=result
         this.data=true
+        this.count=0
+        this.currentIndex=0
+        this.page()
       }
     })
   }
+
+  page(){
+    this.currentBookData = new Array()
+    this.currentIndex = this.count
+    for(let i=0; i<5; i=i+1){
+      if(this.currentIndex<this.bookdata.result.length){
+        this.currentBookData.push(this.bookdata.result[this.currentIndex])
+        this.currentIndex=this.currentIndex+1
+      }
+    }
+  }
   
+  previous(){
+    if(this.count<=0){
+      this.count=0;
+      this.page();
+    }
+    else{
+      this.count=this.count-5
+      this.page();
+    }
+  }
+   next(){
+     if(this.count<this.bookdata.result.length && this.currentIndex!=this.bookdata.result.length){
+       this.count = this.count+5
+       this.page()
+     }
+   }
+
   deletebook(book:any){
     let book_id=book.book_id
 
@@ -111,6 +145,11 @@ export class ViewbooksComponent implements OnInit {
   viewselectedbook(book:any){
     localStorage.setItem("cbook",book.book_id)
     this.router.navigateByUrl('/admin/book')
+  }
+
+  editbook(book:any){
+    localStorage.setItem("cbook",book.book_id)
+    this.router.navigateByUrl('/admin/editbook')
   }
 
   ngOnInit(): void {

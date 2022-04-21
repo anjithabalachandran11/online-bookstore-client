@@ -24,19 +24,19 @@
 <!-- div start -->
 <div class="card" style="width: 50rem; height: auto;">
     <div class="card-body">
-        <h2 class="card-title">{{book.data.book_name}}</h2>
-        <h3>Author: {{book.data.author|titlecase}}</h3>
-        <p class="card-text">{{book.data.description}}</p>
-        <h4>Language: {{book.data.language|titlecase}}</h4>
-        <h4>Publisher: {{book.data.publication|titlecase}}</h4>
-        <h4>Price: {{book.data.price}}</h4>
-        <h4>Book Status: {{book.data.book_status}}</h4>
+        <h2 class="card-title">{{book?.data.book_name}}</h2>
+        <h3>Author: {{book?.data.author|titlecase}}</h3>
+        <p class="card-text">{{book?.data.description}}</p>
+        <h4>Language: {{book?.data.language|titlecase}}</h4>
+        <h4>Publisher: {{book?.data.publication|titlecase}}</h4>
+        <h4>Price: {{book?.data.price}}</h4>
+        <h4>Book Status: {{book?.data.book_status}}</h4>
         <ngx-star-rating [(ngModel)]="avgrating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
         &nbsp;<h4>Rating: </h4>
         <div>
             <h5>Comments</h5>
-            <ul *ngFor="let comment of book.data.comments">
-                <li style="list-style-type: none;">{{comment.username}} :- {{comment.comment}}</li>
+            <ul *ngFor="let comment of book?.data.comments">
+                <li style="list-style-type: none;">{{comment?.username|titlecase}} :- {{comment.comment}}</li>
             </ul>
         </div>
         <button type="button" class="btn text-light" (click)="back()">Go Back</button>

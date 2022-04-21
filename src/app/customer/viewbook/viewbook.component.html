@@ -23,19 +23,18 @@
 
 <div class="card" style="width: 50rem; height: auto;">
     <div class="card-body">
-        <h2 class="card-title">{{book.data.book_name}}</h2>
-        <h3>Author: {{book.data.author|titlecase}}</h3>
-        <p class="card-text">{{book.data.description}}</p>
-        <h4>Language: {{book.data.language|titlecase}}</h4>
-        <h4>Publisher: {{book.data.publication|titlecase}}</h4>
-        <h3>Price: {{book.data.price}}</h3>
+        <h2 class="card-title">{{book?.book_name}}</h2>
+        <h3>Author: {{book?.author|titlecase}}</h3>
+        <p class="card-text">{{book?.description}}</p>
+        <h4>Language: {{book?.language|titlecase}}</h4>
+        <h4>Publisher: {{book?.publication|titlecase}}</h4>
+        <h3>Price: {{book?.price}}</h3>
         <ngx-star-rating [(ngModel)]="avgrating" [id]="'ratings'" [disabled]="true"></ngx-star-rating>
         &nbsp;<h4>Rating: </h4>
         <div>
             <h4>Comments</h4>
-            <ul *ngFor="let comment of book.data.comments">
-                <li style="list-style-type: none;">{{comment.username}} :- {{comment.comment}}
-                </li>
+            <ul *ngFor="let comment of book?.comments">
+                <li style="list-style-type: none;">{{comment?.username|titlecase}} :- {{comment.comment}} 
             </ul>
         </div>
         

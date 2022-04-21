@@ -34,24 +34,27 @@ export class BookComponent implements OnInit {
       bookid
     }
 
-    this.http.post(this.url+'/adminbook/',data,options).subscribe((result)=>{
-      const adminbookresult=JSON.parse(JSON.stringify(result))
+    this.http.post(this.url+'/adminbook/',data,options).subscribe(async (result)=>{
+      const adminbookresult=await JSON.parse(JSON.stringify(result))
       if(adminbookresult.statuscode==404){
         alert(adminbookresult.message)
         this.router.navigateByUrl('/admin')
       }
       else{
-        this.book=result
+        this.book=adminbookresult
         localStorage.setItem("cbook",this.book.data.book_id)
-        let rate=0
-        let count=0
-        for(let b of this.book.data.comments){
-          if(parseInt(b.rating)>0){
-            count=count+1
-          }
-          rate=rate+parseInt(b.rating)
-        }
-        this.avgrating=rate/count
+        //console.log(this.book.data.averagerating)
+        this.avgrating=this.book.data.averagerating
+        // let rate=0
+        // let count=0
+        // for(let b of this.book.data.comments){
+        //   if(parseInt(b.rating)>0){
+        //     count=count+1
+        //   }
+        //   rate=rate+parseInt(b.rating)
+        // }
+        // this.avgrating=rate/count
+        // console.log(this.avgrating)
       }
     })
   }

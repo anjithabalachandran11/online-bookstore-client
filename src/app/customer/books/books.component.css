@@ -24,3 +24,7 @@ h4{
 .btn{
     background-color: rgb(66, 66, 161);
 }
+svg{
+    width:30px;
+    color: white;
+}

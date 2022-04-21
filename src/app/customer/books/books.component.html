@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark ">
-    <div class="container px-5">
+    <div class="container-fluid px-5">
         <a class="navbar-brand" href="#!">BookStore</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -11,10 +11,23 @@
                 </li>
             </ul>
             <ul>
-                <li><button type="submit" class="btn text-light"
-                        style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button>
+                <li >
+                    <!-- <button type="submit" class="btn text-light"
+                        style="font-size:larger; padding-top: 20px; float: right;" (click)="logout()">Logout</button> -->
+                       <button (click)="logout()" class="btn " style="padding-top: 20px; float: right;"> <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" >
+                            <title>Power</title>
+                            <path d="M378 108a191.41 191.41 0 0170 148c0 106-86 192-192 192S64 362 64 256a192 192 0 0169-148M256 64v192"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"  />
+                        </svg></button>
                 </li>
             </ul>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                <title>Log Out</title>
+                <path
+                    d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256"
+                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" (click)="logout()"/>
+            </svg> -->
+            
         </div>
     </div>
 </nav>
@@ -34,7 +47,7 @@
     </form><br>
 
     <div class="row">
-        <div class="col-lg-4" *ngFor="let book of books.books">
+        <div class="col-lg-4" *ngFor="let book of books">
             <div class="card" style="height:460px;">
                 <div class="card-body">
                     <h2 class="card-title">{{book.book_name}}</h2>

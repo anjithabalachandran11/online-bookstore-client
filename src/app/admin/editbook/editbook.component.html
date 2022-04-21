@@ -4,7 +4,7 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="col-lg-9">
-    <form [formGroup]="editdata" (ngSubmit)="editbook()">
+    <!-- <form [formGroup]="editdata" (ngSubmit)="editbook()">
       <h1>EDIT BOOK DETAILS</h1>
 
       <label>Book Id</label><br>
@@ -67,6 +67,38 @@
 
       <button type="submit" class="btn text-light" [disabled]="!editdata.valid">Update</button>&nbsp;&nbsp;
       <button type="reset" class="btn text-light">Reset</button>
+      
+    </form> -->
+
+    <form #editbookdata="ngForm" (ngSubmit)="update(editbookdata.value)">
+      <h1>EDIT BOOK DETAILS</h1>
+
+      <label>Book Id</label><br>
+      <input type="text" name="bookid"   [ngModel]="eresult?.book_id"><br>
+      
+
+      <label>Book Name</label><br>
+      <input type="text" name="bookname"  [ngModel]="eresult?.book_name"><br><br>
+
+      <label>Author</label><br>
+      <input type="text" name="author"  [ngModel]="eresult?.author"><br><br>
+
+      <label>Description</label><br>
+      <textarea name="description" rows="4" cols="50" name="description" [ngModel]="eresult?.description"></textarea><br><br>
+
+      <label>Language</label><br>
+      <input type="text" name="language" [ngModel]="eresult?.language">
+      <br><br>
+
+      <label>Publisher</label><br>
+      <input type="text" name="publisher" [ngModel]="eresult?.publication"><br><br>
+
+      <label>Price</label><br>
+      <input type="text" name="price" [ngModel]="eresult?.price"><br><br>
+
+      <button type="submit" class="btn text-light">Update</button>&nbsp;&nbsp;
+      <button type="reset" class="btn text-light">Reset</button>&nbsp;&nbsp;
+      <button type="button" class="btn text-light"(click)="back()">Back</button>
       
     </form>
   </div>

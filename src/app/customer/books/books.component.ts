@@ -21,7 +21,8 @@ export class BooksComponent implements OnInit {
     this.sr.getbooks(option).subscribe((result)=>{
       const getbooksresult = JSON.parse(JSON.stringify(result))
       if(getbooksresult.statuscode==200){
-        this.books=result
+       // this.books=result
+       this.books=getbooksresult.books
       }
       else{
         alert(getbooksresult.message)
@@ -32,8 +33,8 @@ export class BooksComponent implements OnInit {
 
   logout(){
     //window.location.reload()
-    localStorage.clear()
-    this.books=null
+    // localStorage.clear()
+    // this.books=null
     this.router.navigateByUrl('/customer')
   }
 
@@ -41,7 +42,8 @@ export class BooksComponent implements OnInit {
     this.sr.getbooks(option).subscribe((result)=>{
       const getbooksresult=JSON.parse(JSON.stringify(result))
       if(getbooksresult.statuscode==200){
-        this.books=result
+        //this.books=result
+        this.books=getbooksresult.books
       }
       else{
         alert(getbooksresult.message)

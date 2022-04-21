@@ -20,9 +20,13 @@ export class ServicesService {
 
   // ADMIN OPERATION
 
-  adminviewbook(id:any){
-    this.bookid=id
-  }
+  // adminviewbook(id:any){
+  //   this.bookid=id
+  // }
+
+  // admineditbook(id:any){
+  //   this.editbook=id
+  // }
 
 //CUSTOMER OPERATIONS
 

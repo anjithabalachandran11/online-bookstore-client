@@ -28,8 +28,10 @@ export class ViewbookComponent implements OnInit {
     this.sr.userviewbook(bookid).subscribe((result)=>{
       const bookresult=JSON.parse(JSON.stringify(result))
       if(bookresult.statuscode==200){
-        this.book=result
-        this.avgrating=this.book.data.averagerating
+        //this.book=result
+        this.book=bookresult.data
+        this.avgrating=this.book.averagerating
+        //console.log(this.book)
       }
       else{
         alert(bookresult.message)
@@ -43,8 +45,14 @@ export class ViewbookComponent implements OnInit {
     let bookid=localStorage.getItem("cbook")
     let rating=this.rating
     this.sr.postcomment(userid,bookid,comment,rating).subscribe((result)=>{
-      if(result){
+      const postresult=JSON.parse(JSON.stringify(result))
+      console.log(postresult)
+      if(postresult.statuscode==200){
         this.router.navigateByUrl('/viewbook')
+        window.location.reload()
+      }
+      else{
+        alert(postresult.message)
       }
     })
   }
@@ -56,7 +64,7 @@ export class ViewbookComponent implements OnInit {
     this.sr.editcomment(userid,bookid,comment,rating).subscribe((result)=>{
       const editresult=JSON.parse(JSON.stringify(result))
       if(editresult.statuscode==200){
-        window.location.reload()
+       window.location.reload()
       }
       else{
         alert(editresult.message)
